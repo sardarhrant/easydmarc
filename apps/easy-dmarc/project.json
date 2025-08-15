@@ -1,28 +1,27 @@
 {
-  "name": "frontent-task",
-  "$schema": "node_modules/nx/schemas/project-schema.json",
-  "includedScripts": [],
+  "name": "easy-dmarc",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
   "prefix": "app",
-  "sourceRoot": "./src",
+  "sourceRoot": "apps/easy-dmarc/src",
   "tags": [],
   "targets": {
     "build": {
       "executor": "@angular/build:application",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/frontent-task",
-        "browser": "./src/main.ts",
+        "outputPath": "dist/apps/easy-dmarc",
+        "browser": "apps/easy-dmarc/src/main.ts",
         "polyfills": ["zone.js"],
-        "tsConfig": "tsconfig.app.json",
+        "tsConfig": "apps/easy-dmarc/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": [
           {
             "glob": "**/*",
-            "input": "public"
+            "input": "apps/easy-dmarc/public"
           }
         ],
-        "styles": ["./src/styles.scss"]
+        "styles": ["apps/easy-dmarc/src/styles.scss"]
       },
       "configurations": {
         "production": {
@@ -53,10 +52,10 @@
       "executor": "@angular/build:dev-server",
       "configurations": {
         "production": {
-          "buildTarget": "frontent-task:build:production"
+          "buildTarget": "easy-dmarc:build:production"
         },
         "development": {
-          "buildTarget": "frontent-task:build:development"
+          "buildTarget": "easy-dmarc:build:development"
         }
       },
       "defaultConfiguration": "development"
@@ -64,28 +63,25 @@
     "extract-i18n": {
       "executor": "@angular/build:extract-i18n",
       "options": {
-        "buildTarget": "frontent-task:build"
+        "buildTarget": "easy-dmarc:build"
       }
     },
     "lint": {
-      "executor": "@nx/eslint:lint",
-      "options": {
-        "lintFilePatterns": ["./src"]
-      }
+      "executor": "@nx/eslint:lint"
     },
     "test": {
       "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/{projectName}"],
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "jest.config.app.ts"
+        "jestConfig": "apps/easy-dmarc/jest.config.ts"
       }
     },
     "serve-static": {
       "continuous": true,
       "executor": "@nx/web:file-server",
       "options": {
-        "buildTarget": "frontent-task:build",
-        "staticFilePath": "dist/frontent-task/browser",
+        "buildTarget": "easy-dmarc:build",
+        "staticFilePath": "dist/apps/easy-dmarc/browser",
         "spa": true
       }
     }

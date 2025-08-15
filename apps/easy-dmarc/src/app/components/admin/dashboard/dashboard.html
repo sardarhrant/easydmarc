@@ -1,0 +1,34 @@
+<div class="dashboard-wrapper">
+    <aside class="sidebar">
+        <h2>My Dashboard</h2>
+        <nav>
+            <a>🏠 Home</a>
+            <a>📊 Analytics</a>
+            <a>📦 Orders</a>
+            <a>👥 Customers</a>
+            <a>⚙ Settings</a>
+        </nav>
+    </aside>
+
+    <main class="main">
+        <div class="header">
+            <h1>Welcome Back!</h1>
+            <div class="user">
+                <span>{{registeredUserData.email}}</span>
+                <img src="https://i.pravatar.cc/36" alt="User" />
+            </div>
+        </div>
+
+
+        <section class="table-container">
+            <div class="user-data">
+                <p>Email <b>{{registeredUserData.email}}</b></p>
+                <p>Role: <b>{{registeredUserData.yourRole}}</b></p>
+                <p>Years of experience: <b>{{registeredUserData.experienceInYears}} years</b></p>
+                <p>Industry: <b>{{registeredUserData.industry}}</b></p>
+            </div>
+            <h4 class="about-title">About Me</h4>
+            <p [innerHTML]="registeredUserData.aboutUs"></p>
+        </section>
+    </main>
+</div>

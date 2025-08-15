@@ -1,0 +1,45 @@
+<div class="form-wrapper">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="field-block">
+            <mat-form-field>
+                <mat-label>Email</mat-label>
+                <input formControlName="email" type="email" matInput>
+            </mat-form-field>
+            @if (isEmailHasErrorRequired) {
+                <span class="error-field">This field is required</span>
+            }
+            @if (isEmailHasErrorValid) {
+                <span class="error-field">Invalid email address</span>
+            }
+        </div>
+
+        <div class="field-block">
+            <mat-form-field>
+                <mat-label>Password</mat-label>
+                <input formControlName="password" type="password" matInput>
+            </mat-form-field>
+            @if (isPasswordHasErrorRequired) {
+                <span class="error-field">This field is required</span>
+            }
+            @if (isPasswordHasErrorMinLength) {
+                <span class="error-field">Minimum 6 characters required. {{ leftCharacters }}</span>
+            }
+        </div>
+
+        <div class="field-block">
+            <mat-form-field>
+                <mat-label>Confirmation Password</mat-label>
+                <input formControlName="confirm-password" type="password" matInput>
+            </mat-form-field>
+
+            @if (isPasswordmatchHasError) {
+                <span class="error-field">Passwords does not matched</span>
+            }
+        </div>
+
+        <div class="form-controls-btns">
+            <button [disabled]="form.invalid" type="submit" matButton="filled">Proceed to Next Step</button>
+        </div>
+
+    </form>
+</div>

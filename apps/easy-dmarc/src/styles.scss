@@ -1,0 +1,82 @@
+@use '@angular/material' as mat;
+
+html {
+  color-scheme: light dark;
+  @include mat.theme((
+          color: mat.$violet-palette,
+          typography: Helvetica,
+          density: 0
+  ));
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.error-field {
+  position: absolute;
+  bottom: -10px;
+  font-size: 12px;
+  color: #e3545d;
+  width: 100%;
+  left: 0;
+}
+
+//.back-btn {
+//  position: absolute;
+//  top: 5px;
+//  left: 5px;
+//  cursor: pointer;
+//}
+
+.field-block {
+  position: relative;
+}
+
+.form-wrapper {
+  position: relative;
+  width: 400px;
+  margin: auto;
+
+  display: flex;
+  justify-content: center;
+  padding: 25px 15px 30px 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+
+  form {
+    width: 100%;
+    mat-form-field {
+      width: 100%;
+    }
+
+  }
+}
+
+.form-controls-btns {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+
+  button {
+    border: 1px solid #000;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+    display: block;
+    width: 100%;
+    cursor: pointer;
+    background: none;
+    margin-top: 20px;
+    &:hover {
+      background-color: #005cbb;
+      border-color: #005cbb;
+      color: #fff;
+    }
+  }
+}
+
+button[type="submit"]:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

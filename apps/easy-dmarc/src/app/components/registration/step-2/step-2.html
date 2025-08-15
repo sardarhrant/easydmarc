@@ -1,0 +1,45 @@
+<div class="form-wrapper">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="field-block">
+            <mat-form-field>
+                <mat-label>Industry Types</mat-label>
+                <mat-select formControlName="industry">
+                    @for (item of industryTypes; track item.value) {
+                        <mat-option [value]="item.name">{{item.name}}</mat-option>
+                    }
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div class="field-block">
+            <mat-form-field>
+                <mat-label>Experience In Years</mat-label>
+                <input formControlName="experienceInYears" type="number" matInput>
+            </mat-form-field>
+             <div>
+                 @if (isExperienceInYearsHasError) {
+                    <span class="error-field">Max years should be 50</span>
+                }
+                 @if (isExperienceInYearsHasErrorRequired) {
+                     <span class="error-field">This field is required.</span>
+                 }
+             </div>
+        </div>
+
+        <div class="field-block">
+            <mat-form-field>
+                <mat-label>Roles</mat-label>
+                <mat-select formControlName="yourRole">
+                    @for (role of roles; track role) {
+                        <mat-option [value]="role.name">{{role.name}}</mat-option>
+                    }
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div class="form-controls-btns">
+            <button (click)="goToBack()" class="back-btn">Back</button>
+            <button [disabled]="form.invalid" type="submit" matButton="filled">Proceed to Next Step</button>
+        </div>
+    </form>
+</div>

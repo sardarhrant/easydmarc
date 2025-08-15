@@ -1,0 +1,25 @@
+<div class="form-wrapper">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <div class="step-3-heading">
+                <mat-label>About Us</mat-label>
+            </div>
+
+        <div class="field-block">
+            <textarea placeholder="Describe yourself here..."
+                      formControlName="aboutUs" matInput
+                      cdkTextareaAutosize
+                      #autosize="cdkTextareaAutosize"
+                      cdkAutosizeMinRows="10"
+                      cdkAutosizeMaxRows="25">
+            </textarea>
+            @if (isABoutUsHasErrorMaxLength) {
+                <span class="error-field">Maximum length is 255 characters. {{ leftCharacters }}</span>
+            }
+        </div>
+
+        <div class="form-controls-btns">
+            <button (click)="goToBack()" class="back-btn">Back</button>
+            <button [disabled]="form.invalid" type="submit" matButton="filled">Proceed to Next Step</button>
+        </div>
+    </form>
+</div>
