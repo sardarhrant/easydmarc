@@ -6,7 +6,7 @@ import {FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/
 import {confirmPasswordValidator} from "./validators/confirm-password.validator";
 import {Router} from "@angular/router";
 import {StorageService} from "../../../services/storage.service";
-import {StateService} from "../../../services/StateService";
+import {StateService} from "../../../services/state.service";
 
 @Component({
   selector: 'app-step-1',

@@ -1,11 +1,13 @@
 import {Component, inject, OnInit} from '@angular/core';
-import { CommonModule, Location } from '@angular/common';
+import {CommonModule, Location} from '@angular/common';
 import {FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
 import {MatFormField, MatInput, MatLabel} from "@angular/material/input";
 import {MatOption, MatSelect} from "@angular/material/select";
 import {StorageService} from "../../../services/storage.service";
 import {Router} from "@angular/router";
-import {StateService} from "../../../services/StateService";
+import {StateService} from "../../../services/state.service";
+import {RoleType} from "../enums/role-type.enum";
+import {IndustryType} from "../enums/industry-type.enum";
 
 @Component({
   selector: 'app-step-2',
@@ -28,29 +30,29 @@ export class Step2 implements OnInit {
 
   industryTypes = [
     {
-      value: 'Marketing',
+      value: IndustryType.Marketing,
       name: 'Marketing'
     },
     {
-      value: 'it',
+      value: IndustryType.IT,
       name: 'It'
     },
     {
-      value: 'financial_services',
+      value: IndustryType.Financial_Services,
       name: 'Financial Services'
     },
   ]
   roles: {value: string; name: string}[] =  [
     {
-      value: 'developer',
+      value: RoleType.Developer,
       name: 'Developer'
     },
     {
-      value: 'designer',
+      value: RoleType.Designer,
       name: 'Designer'
     },
     {
-      value: 'manager',
+      value: RoleType.Manager,
       name: 'Manager'
     }];
 
@@ -73,7 +75,7 @@ export class Step2 implements OnInit {
   }
 
   goToBack() {
-    this.location.back();
+    this.router.navigate(['/step-1'], {})
   }
 
   get isExperienceInYearsHasError () {

@@ -5,7 +5,7 @@ import {StorageService} from "../services/storage.service";
 
 
 @Injectable()
-export class AuthGuardStep2 implements CanActivate {
+export class CanActivateStep2 implements CanActivate {
 
     private storageService = inject(StorageService);
 

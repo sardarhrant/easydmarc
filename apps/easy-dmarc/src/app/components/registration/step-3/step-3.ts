@@ -5,7 +5,7 @@ import {MatLabel} from "@angular/material/input";
 import {CdkTextareaAutosize} from "@angular/cdk/text-field";
 import {Router} from "@angular/router";
 import {StorageService} from "../../../services/storage.service";
-import {StateService} from "../../../services/StateService";
+import {StateService} from "../../../services/state.service";
 
 @Component({
   selector: 'app-step-3',
@@ -44,7 +44,7 @@ export class Step3 implements OnInit {
   }
 
   goToBack() {
-    this.location.back();
+    this.router.navigate(['/step-2'], {})
   }
 
   get isABoutUsHasErrorMaxLength () {
